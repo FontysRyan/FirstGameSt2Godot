@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwelhm8qnwsxu"]
+
+[ext_resource type="Script" uid="uid://b7bx1rn8tcnv2" path="res://Scripts/counter_hud.gd" id="1_4rytn"]
+[ext_resource type="Theme" uid="uid://bxtdc1jjpfknf" path="res://Assets/UI/CounterHUD.tres" id="1_t02i5"]
+
+[sub_resource type="Animation" id="Animation_t02i5"]
+resource_name = "Countdown"
+length = 1.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CountdownLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/CountdownLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["ready?", "set?", "go!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/CountdownLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3000001, 1.3500001, 1.4000001, 1.4500002, 1.5000001, 1.5500001, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(80, -23), Vector2(-82, 19), Vector2(-11, -54), Vector2(99, 60), Vector2(-120, -66), Vector2(80, -23), Vector2(-82, 19), Vector2(-11, -54), Vector2(99, 60), Vector2(-120, -66), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4rytn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CountdownLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/CountdownLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ready?"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/CountdownLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soxp4"]
+_data = {
+&"Countdown": SubResource("Animation_t02i5"),
+&"RESET": SubResource("Animation_4rytn")
+}
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_4rytn")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountdownLabel" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t02i5")
+text = "ready?"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_soxp4")
+}
+speed_scale = 0.5
