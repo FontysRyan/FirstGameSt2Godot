@@ -8,8 +8,8 @@
 [node name="HUD" parent="." index="0" node_paths=PackedStringArray("player") instance=ExtResource("1_8wi1m")]
 player = NodePath("../TileMapLayer/Player")
 
-[node name="LevelManager" parent="." index="1" node_paths=PackedStringArray("counter_hud")]
+[node name="LevelManager" parent="." index="2" node_paths=PackedStringArray("counter_hud")]
 counter_hud = NodePath("../HUD")
 
-[node name="AreaExit" parent="." index="4"]
+[node name="AreaExit" parent="." index="5"]
 position = Vector2(226, -18)
