@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjjojd7g6n8t3"]
+
+[ext_resource type="Script" uid="uid://bve7v0xsarf2k" path="res://version_ui.gd" id="1_vboyt"]
+
+[node name="VersionUI" type="CanvasLayer"]
+script = ExtResource("1_vboyt")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VersionText" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test text"

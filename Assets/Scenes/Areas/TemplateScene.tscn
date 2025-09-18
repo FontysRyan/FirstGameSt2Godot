@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://c40m3npap1rcj"]
 
 [ext_resource type="PackedScene" uid="uid://djbrlaxdxq8u8" path="res://Assets/level_manager.tscn" id="1_2a344"]
-[ext_resource type="PackedScene" uid="uid://cwelhm8qnwsxu" path="res://Assets/UI/CounterHUD.tscn" id="2_iddmh"]
+[ext_resource type="PackedScene" uid="uid://bjjojd7g6n8t3" path="res://Assets/UI/version_ui.tscn" id="1_iddmh"]
 [ext_resource type="Texture2D" uid="uid://b0idl1ho7h4ld" path="res://Sprites/tiles_1.png" id="3_jh0hl"]
 [ext_resource type="PackedScene" uid="uid://d3gox4sfut7tg" path="res://Assets/player.tscn" id="4_uukgv"]
 [ext_resource type="PackedScene" uid="uid://dcss8yptvqnq5" path="res://Assets/area_exit.tscn" id="5_qe06f"]
@@ -141,21 +141,20 @@ sources/0 = SubResource("TileSetAtlasSource_dlc4e")
 
 [node name="TemplateScene" type="Node2D"]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("counter_hud") instance=ExtResource("1_2a344")]
-counter_hud = NodePath("../HUD")
+[node name="VersionUI" parent="." instance=ExtResource("1_iddmh")]
 
-[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_iddmh")]
-player = NodePath("../TileMapLayer/Player")
+[node name="LevelManager" parent="." node_paths=PackedStringArray("counter_hud") instance=ExtResource("1_2a344")]
+counter_hud = NodePath("")
 
 [node name="TileMapBackground" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_0mabu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-3, 0)
-tile_map_data = PackedByteArray("AAD+/wAAAAAAAAQAAAD//wAAAAABAAQAAAAAAAAAAAABAAQAAAABAAAAAAABAAQAAAACAAAAAAABAAQAAAADAAAAAAABAAQAAAAEAAAAAAABAAQAAAAFAAAAAAABAAQAAAAGAAAAAAABAAQAAAAHAAAAAAABAAQAAAAIAAAAAAABAAQAAAAJAAAAAAABAAQAAAAKAAAAAAABAAQAAAALAAAAAAABAAQAAAAMAAAAAAABAAQAAAANAAAAAAABAAQAAAAPAAAAAAACAAQAAAAOAAAAAAABAAQAAAD+/wEAAAAAAAYAAAAPAAEAAAACAAYAAAD//wEAAAABAAYAAAAAAAEAAAABAAYAAAABAAEAAAABAAYAAAACAAEAAAABAAYAAAADAAEAAAABAAYAAAAEAAEAAAABAAYAAAAFAAEAAAABAAYAAAAGAAEAAAABAAYAAAAHAAEAAAABAAYAAAAIAAEAAAABAAYAAAAJAAEAAAABAAYAAAAKAAEAAAABAAYAAAALAAEAAAABAAYAAAAMAAEAAAABAAYAAAANAAEAAAABAAYAAAAOAAEAAAABAAYAAAA=")
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAALAAAAAAABAAAAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAAPAAAAAAACAAAAAAAOAAAAAAABAAAAAAD+/wEAAAAAAAIAAAAPAAEAAAACAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAACAAEAAAABAAIAAAADAAEAAAABAAIAAAAEAAEAAAABAAIAAAAFAAEAAAABAAIAAAAGAAEAAAABAAIAAAAHAAEAAAABAAIAAAAIAAEAAAABAAIAAAAJAAEAAAABAAIAAAAKAAEAAAABAAIAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAANAAEAAAABAAIAAAAOAAEAAAABAAIAAAD+////AAADAAEAAAD+//7/AAADAAEAAAD+//3/AAADAAEAAAD+//z/AAADAAEAAAD+//v/AAADAAEAAAD+//r/AAADAAEAAAD+//n/AAADAAEAAAD+//j/AAADAAAAAAAPAP//AAADAAEAAAAPAP7/AAADAAEAAAAPAP3/AAADAAEAAAAPAPz/AAADAAEAAAAPAPv/AAADAAEAAAAPAPr/AAADAAEAAAAPAPn/AAADAAEAAAAPAPj/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_wlrh0")
 
 [node name="Player" parent="TileMapLayer" instance=ExtResource("4_uukgv")]
 
 [node name="AreaExit" parent="." instance=ExtResource("5_qe06f")]
-position = Vector2(235, -18)
+position = Vector2(221, -21)

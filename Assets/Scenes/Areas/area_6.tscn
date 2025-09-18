@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bywb0x2eg2mrx"]
+
+[ext_resource type="PackedScene" uid="uid://c40m3npap1rcj" path="res://Assets/Scenes/Areas/TemplateScene.tscn" id="1_uol6i"]
+[ext_resource type="Theme" uid="uid://bxtdc1jjpfknf" path="res://Assets/UI/CounterHUD.tres" id="2_ns6a0"]
+
+[node name="TemplateScene" instance=ExtResource("1_uol6i")]
+
+[node name="AreaExit" parent="." index="3"]
+position = Vector2(526, 167)
+
+[node name="You win" type="CanvasLayer" parent="." index="4"]
+
+[node name="Control" type="Control" parent="You win" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="You win/Control" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 96.0
+offset_right = 236.0
+offset_bottom = 199.0
+grow_horizontal = 2
+theme = ExtResource("2_ns6a0")
+text = "You won!"
+horizontal_alignment = 1
+vertical_alignment = 1
