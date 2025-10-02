@@ -1,0 +1,161 @@
+[gd_scene load_steps=5 format=3 uid="uid://duq5n6l3ot2mw"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver/game_over_variant2.gd" id="1_variant2"]
+[ext_resource type="Theme" uid="uid://bxtdc1jjpfknf" path="res://Assets/UI/CounterHUD.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.15, 0.25, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3, 0.5, 0.9, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.2, 0.4, 0.8, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GameOverVariant2" type="CanvasLayer"]
+script = ExtResource("1_variant2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 70
+text = "GAME OVER"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Divider1" type="HSeparator" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_button")
+
+[node name="StatsContainer" type="GridContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="TimeLabel" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "TIME SURVIVED:"
+horizontal_alignment = 2
+
+[node name="TimeValue" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "00:00"
+
+[node name="LevelLabel" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "LEVEL REACHED:"
+horizontal_alignment = 2
+
+[node name="LevelValue" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "1"
+
+[node name="Divider2" type="HSeparator" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_button")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RestartButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "RESTART LEVEL"
+
+[node name="MainMenuButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "MAIN MENU"
+
+[node name="QuitButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "QUIT GAME"
